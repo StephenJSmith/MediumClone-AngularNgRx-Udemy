@@ -1,0 +1,33 @@
+<div class="feed-toggle">
+  <ul class="nav nav-pills outline-active">
+    <li *ngIf="currentUser$ | async" class="nav-item">
+      <a 
+        routerLink="/feed" 
+        routerLinkActive="active"
+        class="nav-link">
+        Your feed
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a 
+        routerLink="/" 
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        queryParamsHandling="merge"
+        class="nav-link">
+        Global feed
+      </a>
+    </li>
+
+    <li *ngIf="tagName" class="nav-item">
+      <a 
+        [routerLink]="['/tags', tagName]" 
+        routerLinkActive="active"
+        class="nav-link">
+        <i class="ion-pound"></i>
+        {{tagName}}
+      </a>
+    </li>
+  </ul>
+</div>
